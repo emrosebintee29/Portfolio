@@ -19,6 +19,7 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#graphics">Graphics</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -78,7 +79,7 @@
             <p class="skill-name">Java</p>
             <p class="skill-desc">Write once, run anywhere - powering modern applications.</p>
             <div class="progress">
-                <div class="progress-bar" style="width: 80%;">980%</div>
+                <div class="progress-bar" style="width: 80%;">80%</div>
             </div>
         </div>
         <div class="skill">
@@ -231,4 +232,28 @@
     </section>
 
 </body>
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav ul li a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+
+        if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(a => {
+        a.classList.remove("active");
+        if (a.getAttribute("href") === "#" + current) {
+            a.classList.add("active");
+        }
+    });
+});
+</script>
 </html>
